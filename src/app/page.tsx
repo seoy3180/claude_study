@@ -66,28 +66,65 @@ export default function Home() {
         </div>
 
         {/* Input Form */}
-        <div className="max-w-2xl mx-auto mb-12">
-          <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
-            <div className="mb-6">
-              <label htmlFor="thought" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                지금 어떤 생각을 하고 계신가요?
-              </label>
-              <textarea
-                id="thought"
-                value={thought}
-                onChange={(e) => setThought(e.target.value)}
-                placeholder="자유롭게 당신의 생각을 적어보세요..."
-                className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none h-32 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg"
-            >
-              격려해주세요 💝
-            </button>
-          </form>
+        <div className="max-w-lg mx-auto mb-12">
+          <div 
+            className="relative p-8 rounded-3xl transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-2xl group"
+            style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 16px 40px 0 rgba(0, 0, 0, 0.1)'
+            }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="text-center">
+                <label 
+                  htmlFor="thought" 
+                  className="block text-xl font-semibold text-gray-800 dark:text-white mb-6"
+                  style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+                >
+                  지금 어떤 생각을 하고 계신가요?
+                </label>
+              </div>
+              
+              <div className="relative">
+                <input
+                  type="text"
+                  id="thought"
+                  value={thought}
+                  onChange={(e) => setThought(e.target.value)}
+                  placeholder="자유롭게 당신의 생각을 적어보세요..."
+                  className="w-full px-6 py-4 rounded-full focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-600 dark:placeholder-gray-300 transition-all duration-200 text-lg outline-none border-0"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.1)'
+                  }}
+                  required
+                />
+              </div>
+              
+              <div className="text-center pt-2">
+                <button
+                  type="submit"
+                  className="relative px-8 py-3 rounded-full font-medium text-sm tracking-wide overflow-hidden group transition-all duration-300 hover:shadow-xl transform hover:scale-105 active:scale-95"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.9), rgba(236, 72, 153, 0.9), rgba(59, 130, 246, 0.9))',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow: '0 8px 32px 0 rgba(138, 43, 226, 0.3)',
+                    color: 'white',
+                    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+                  }}
+                >
+                  <span className="relative z-10 font-semibold">
+                    격려받기 ✨
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
 
         {/* Thoughts List */}
